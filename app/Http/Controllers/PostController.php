@@ -13,4 +13,11 @@ class PostController extends Controller
 
         return view('posts', compact('posts'));
     }
+
+    public function show($post_id){
+        $posts = Post::where('id', $post_id)->get();
+        $post = $posts[0];
+        dump($post);
+        return view('show-post', compact('post'));
+    }
 }
